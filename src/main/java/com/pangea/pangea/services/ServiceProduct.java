@@ -17,7 +17,7 @@ public class ServiceProduct {
     private IProduct repositoryProduct;
     //Create 
     public Product saveProduct(Product data){
-        if (data.getStock() <= 0) {
+        if (data.getStock() <= 0 || data.getName() == null) {
             throw new ResponseStatusException(
                 HttpStatus.UNPROCESSABLE_ENTITY, "The stock can't be 0");
         }
